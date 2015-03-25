@@ -1,0 +1,76 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+body {
+	background: white;
+	margin: 0;
+}
+#header {
+	background:url('../slike/header.png');
+	margin: 0;
+	height: 120px;
+	margin: 0 auto 20px;
+	border-bottom: solid;
+	border-top: solid;
+	
+	border-color:black;
+	
+
+}
+#header a.logo {
+	display: block;
+	height: 100px;
+	width: 200px;
+	margin:10px;
+	
+	
+}
+#header a.logo img {
+	display: block;
+	height: 110px;
+	width: 200px;
+	padding: 0;
+}
+
+
+
+
+#header ul {
+	
+	margin-top:-30px;
+	margin-left: 400px;
+	
+}
+#header ul li{
+	display: block;
+	list-style: none;
+	float: left;
+	text-align: center;
+	background: #000033;
+
+
+	
+}
+#header ul li a{
+	color: white;
+	text-decoration: none;
+	font-family: 'Open Sans Condensed';
+	font-size: 20px;
+	display: block;
+	height: 40px;
+	width: 100px;
+	position: relative;
+	padding-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+
+
+}
+
+#header ul  li:hover{
+	
+	background-color: white;
+}
+#header ul  li a:hover{
+	color: black;
+	
+	
+}
