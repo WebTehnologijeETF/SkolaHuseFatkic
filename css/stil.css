@@ -64,13 +64,13 @@ body,html {
 	
 }
 #meni ul li{
-	display: inline-block;
+	
 	list-style: none;
 	float: left;
 	background-color: #2f2f2f;
 	/*background: url('../slike/meni1.png');*/
 	height: 50px;
-	width: 100px;
+	width: 30px;
 	box-shadow: -1px 0px 0px 0px rgba(0,0,0,0.3);
 	
 	width:auto;
@@ -82,13 +82,14 @@ body,html {
 	color: white;
 	text-decoration: none;
 	font-family: 'Open Sans';
-	font-size: 20px;
+	font-size: 18px;
 	display: block;
 	
+	height: 30px;
 	padding-top: 10px;
-	padding-bottom: 7px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
 	text-align: center;
 	
 
@@ -282,12 +283,48 @@ body,html {
 	font-size: 12px;
 	font-family: "Open Sans";
 }
-#login{
-	display: inline-block;
-	margin:0;
-	padding: 5px 3px;
-	width: 200px;
+#login,#registracija{
+	display: block;
+	margin: 0px;
+	padding: 5px 20px;
+
+	
 		
+}
+
+#login form input,#registracija form input
+{
+	margin-bottom: 5px;
+}
+#registracija select
+{
+	margin-left: 0px;
+	
+}
+#greskaIme,#greskaPrezime,#greskaEmail,#greskaLozinka
+{
+
+	margin: 0;
+	margin-top: -5px;
+	color: red;
+	padding: 0;
+	position: relative;
+	text-align: center;
+	display: none;
+
+}
+#login #prijava
+{
+	margin-left: 65%;
+	font-family: 'Open Sans';
+	font-size: 13px;
+}
+#registracija #reg
+{	
+	margin-top: 10px;
+	margin-left: 45%;
+	font-family: 'Open Sans';
+	font-size: 13px;
 }
 #login p{
 	display: block;
@@ -301,39 +338,12 @@ body,html {
 	margin-bottom: 5px;	
 	margin-right: 62%;
 }
-#login #reg{
-	padding: 0;
-	padding-top: 20px;
-	text-align: center;
-	width: 200px;
-	border-bottom-style: solid;
-	border-bottom-width: thin;
-}
 
-#desnoTijelo input#username{
 
-	display: block;
-	width: 120px;
-	height: 12px;
-	margin-left: 40%;
-	margin-top: -60px;
-	margin-bottom: 10px;
 
 	
 	
-	
-	}
-	
-#password{
-	display: block;
-	width: 120px;
-	height: 12px;
-	margin-bottom: 10px;
-	margin-left: 40%;
-	
-	
-}	
-#prijava ,#posaljiPoruku{
+#posaljiPoruku{
 	
 	display: block;
 	float: right;
@@ -363,22 +373,7 @@ body,html {
 	
 	
 }
-#registracija{
-	width: 110px;
-	display: block;
-	margin: 0 auto;
-	height: 25px;
-	font-size: 12px;
-	
-	font-family: 'Helvetica';
-	font-weight: 700;
-	background-image: url('../slike/header.png');
-	text-transform: uppercase;
-	color: white;
 
-	
-	
-}
 #desnoTijelo h3{
 
 	display: block;
@@ -420,7 +415,7 @@ body,html {
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4);
 	
 }
-e#tabela {
+#tabela {
 	border: 3px;
 	width: 800px;
 	font-size:20px;
@@ -455,3 +450,27 @@ table#tabela td td:hover {
 		background-color: #97e5a6;
 	}
 
+#meni #uposleniciMeni
+{
+	visibility: hidden;
+}
+#meni #uposleniciMeni a
+{
+	
+
+	font-family: 'Open Sans';
+	font-size: 15px;
+	background-color: #2f2f2f;
+	text-align: center;
+	
+	
+	/*background: url('../slike/meni1.png');*/
+	
+	/*box-shadow: -1px 0px 0px 0px rgba(0,0,0,0.3);*/
+	
+}
+#meni #uposleniciMeni a:hover
+{
+	background-color: #5f5f5f;
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,1);
+}
