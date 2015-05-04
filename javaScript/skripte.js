@@ -1,22 +1,23 @@
+
 function prikaziSakrij()
 {	
 
 	
-	var a=document.getElementById("uposleniciMeni");
-	var r=document.getElementById("Uposlenici");
-	console.log(a.style.visibility);
+	var a=document.getElementById("profiliMeni");
+	var r=document.getElementById("Profili");
+	
 	if(a.classList.contains("hidden"))
 	{
 		a.style.visibility="visible";
 		a.className="";
 		
-		r.innerHTML="▲ UPOSLENICI";
+		r.innerHTML="▲ PROFILI";
 		
 
 	}
 	else{
 		a.className="hidden";
-	r.innerHTML="▼ UPOSLENICI";
+	r.innerHTML="▼ PROFILI";
 	a.style.visibility="hidden";
 	}
 }
@@ -44,7 +45,7 @@ function validateLogin()
 
 }
 
-function validateRegistration()
+function validateRegistration(event)
 {
 
 
@@ -52,6 +53,8 @@ function validateRegistration()
 	var prezime=document.forms["regForma"]["prezime"].value;
 	var email=document.forms["regForma"]["email"].value;
 	var lozinka=document.forms["regForma"]["lozinka"].value;
+	var mjesto=document.forms["regForma"]["mjesto"].value;
+	var opcina=document.forms["regForma"]["opcina"].value;
 	var i=0;
 	if(ime=="")
 	{
@@ -101,6 +104,30 @@ function validateRegistration()
 		document.getElementById("greskaLozinka").style.display="none";
 		document.getElementById("greskaLozinka").innerHTML="";
 	}
+	if(opcina=="")
+	{
+		document.forms["regForma"]["opcina"].style.border="thin solid #CC0000";
+		document.getElementById("greskaOpcina").style.display="block";
+		document.getElementById("greskaOpcina").innerHTML="Unesite općinu";
+		i++;
+	}
+	else
+	{
+		document.getElementById("greskaOpcina").style.display="none";
+		document.getElementById("greskaOpcina").innerHTML="";
+	}
+	if(mjesto=="")
+	{
+		document.forms["regForma"]["mjesto"].style.border="thin solid #CC0000";
+		document.getElementById("greskaMjesto").style.display="block";
+		document.getElementById("greskaMjesto").innerHTML="Unesite mjesto";
+		i++;
+	}
+	else
+	{
+		document.getElementById("greskaMjesto").style.display="none";
+		document.getElementById("greskaMjesto").innerHTML="";
+	}
 	
 	
 	//cross validacija-> lozinka ne moze sadrzavati ime  ili prezime
@@ -124,6 +151,37 @@ function validateRegistration()
 	}
 	if(i>0) return false;
 
-	
+	//ajax validacija opcine i mjesta
 
+
+	var ajax=new XMLHttpRequest();
+	
+	 ajax.onreadystatechange=function(){
+
+		 if(ajax.readyState == 4 && ajax.status == 200)
+		{
+			
+			 var pom=JSON.parse(ajax.responseText);
+			if(pom.hasOwnProperty("greska"))
+			{
+				document.getElementById("greskaMjesto").style.display="block";
+				document.getElementById("greskaMjesto").innerHTML=pom.greska;
+				return false;
+			}
+			else if(pom.hasOwnProperty("ok"))
+			{
+				document.getElementById("greskaMjesto").innerHTML="";
+				document.forms["regForma"].submit();
+			}
+			           
+		}
+	}
+   
+	var o=document.regForma.opcina.value;
+
+	var	m=document.regForma.mjesto.value;
+	
+	var url = 'http://zamger.etf.unsa.ba/wt/mjesto_opcina.php?opcina='+o+'&mjesto='+m;
+	ajax.open("GET",url,true);
+	ajax.send();
 }

@@ -102,7 +102,7 @@ body,html {
 
 }
 
-.odabrano a{
+.odabrano{
   
    border-bottom: solid;
    border-color: white;
@@ -129,6 +129,7 @@ body,html {
 
 	margin: 0 auto 0;
 	width: 520px;
+	min-height: 550px;
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4);
 	padding: 0px 15px 15px;
 	background: url('../slike/novosti.png');
@@ -214,6 +215,7 @@ body,html {
 	
 }
 .sadrzaj ul li img:hover{
+
 	width: 250px;
 }
  .tekst{
@@ -283,7 +285,7 @@ body,html {
 	font-size: 12px;
 	font-family: "Open Sans";
 }
-#login,#registracija{
+#login,#registracija,#unosUcenika{
 	display: block;
 	margin: 0px;
 	padding: 5px 20px;
@@ -292,16 +294,19 @@ body,html {
 		
 }
 
-#login form input,#registracija form input
+#login form input,#registracija form input,#unosUcenika form input
 {
 	margin-bottom: 5px;
+	
 }
+
+
 #registracija select
 {
 	margin-left: 0px;
 	
 }
-#greskaIme,#greskaPrezime,#greskaEmail,#greskaLozinka
+#greskaIme,#greskaPrezime,#greskaEmail,#greskaLozinka,#greskaOpcina,#greskaMjesto
 {
 
 	margin: 0;
@@ -450,11 +455,11 @@ table#tabela td td:hover {
 		background-color: #97e5a6;
 	}
 
-#meni #uposleniciMeni
+#meni #profiliMeni
 {
 	visibility: hidden;
 }
-#meni #uposleniciMeni a
+#meni #profiliMeni a
 {
 	
 
@@ -462,6 +467,23 @@ table#tabela td td:hover {
 	font-size: 15px;
 	background-color: #2f2f2f;
 	text-align: center;
+
+
+	color: white;
+	
+	
+	
+	display: block;
+	
+	height: 30px;
+	padding-top: 10px;
+	padding-bottom: 8px;
+	
+	text-align: center;
+	
+
+
+
 	
 	
 	/*background: url('../slike/meni1.png');*/
@@ -469,8 +491,15 @@ table#tabela td td:hover {
 	/*box-shadow: -1px 0px 0px 0px rgba(0,0,0,0.3);*/
 	
 }
-#meni #uposleniciMeni a:hover
+#meni #profiliMeni a:hover
 {
 	background-color: #5f5f5f;
 	box-shadow: 0px 3px 5px 0px rgba(0,0,0,1);
+}
+
+#
+{
+	display: block;
+	font-family: 'Open Sans';
+
 }

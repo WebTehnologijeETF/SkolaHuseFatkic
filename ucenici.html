@@ -3,7 +3,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <!--<meta http-equiv="refresh" content=""/>-->
-<TITLE>Kontakt forma</TITLE>
+<TITLE>Učenici</TITLE>
 <link href="css/stil.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
 </HEAD>
@@ -61,30 +61,22 @@
 					
 				</div>
 		<div class= "sadrzaj">
-			<h1> Kontaktirajte nas: </h1>
-				<div>
-					<table id="kontaktTabela">
-					<tr><td><p>Ime:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Prezime:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Adresa:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Email:</p></td><td><input type="email"></td></tr>
-					<tr><td><p>Spol:</p></td><td>
-					<form>
-						<input type="radio" name="spol" value="musko" checked>Muško
-						<br>
-						<input type="radio" name="spol" value="zensko">Žensko
-					</form>
-					</tr>
-					<tr><td><p>Poruka:</p></td><td><textarea name="text" id="PorukaZaSlanje"></textarea></td></tr>
-					
-					<tr><td><p></p></td><td><input type="button" value="POŠALJI" id="posaljiPoruku"></td></tr>
+			<div id="unosUcenika">
+				<form name="unosUcenika">
+					Naziv ucenika: <br>
+					<input type="text" id="nazivUcenika" ><br>
+					Slika: <br>
+					<input type="text" id="slikaUcenika"><br>
+					<input type="button" name="dodajUcenika" value="dodaj" onclick="return dodaj()">
+				</form>
+			</div>
 
-					</table>
-				</div>
 		</div>
 	
 
 	
 	<SCRIPT src="javaScript/skripte.js"></SCRIPT>
+	<SCRIPT src="javaScript/AjaxMeni.js"></SCRIPT>
+	<SCRIPT src="javaScript/AjaxUcenici.js"></SCRIPT>
 </BODY>
 </HTML>
