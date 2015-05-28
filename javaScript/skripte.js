@@ -5,6 +5,7 @@ function prikaziSakrij()
 	
 	var a=document.getElementById("profiliMeni");
 	var r=document.getElementById("Profili");
+
 	
 	if(a.classList.contains("hidden"))
 	{
@@ -18,6 +19,22 @@ function prikaziSakrij()
 	else{
 		a.className="hidden";
 	r.innerHTML="▼ PROFILI";
+	a.style.visibility="hidden";
+	}
+}
+function prikaziPodmeni()
+{	
+	var a=document.getElementById("uceniciPodmeni");
+	
+
+	
+	if(a.classList.contains("hidden"))
+	{
+		a.style.visibility="visible";
+		a.className="";
+	}
+	else{
+	a.className="hidden";
 	a.style.visibility="hidden";
 	}
 }
@@ -45,10 +62,9 @@ function validateLogin()
 
 }
 
-function validateRegistration(event)
+function validateRegistration()
 {
-
-
+    event.preventDefault();	
 	var ime=document.forms["regForma"]["ime"].value;
 	var prezime=document.forms["regForma"]["prezime"].value;
 	var email=document.forms["regForma"]["email"].value;
@@ -58,73 +74,66 @@ function validateRegistration(event)
 	var i=0;
 	if(ime=="")
 	{
-		document.forms["regForma"]["ime"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["ime"].style.border="thin solid red";
 		document.getElementById("greskaIme").style.display="block";
 		document.getElementById("greskaIme").innerHTML="Unesite ime";
 		i++;
 	}
 	else
 	{
+		document.forms["regForma"]["ime"].style.border="thin solid black";
 		document.getElementById("greskaIme").style.display="none";
 		document.getElementById("greskaIme").innerHTML="";
 	}
 	if(prezime=="")
 	{
-		document.forms["regForma"]["prezime"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["prezime"].style.border="thin solid red";
 		document.getElementById("greskaPrezime").style.display="block";
 		document.getElementById("greskaPrezime").innerHTML="Unesite Prezime";
 		i++;
 	}
 	else
 	{
+		document.forms["regForma"]["prezime"].style.border="thin solid black";
 		document.getElementById("greskaPrezime").style.display="none";
 		document.getElementById("greskaPrezime").innerHTML="";
 	}
 	if(email=="")
 	{
-		document.forms["regForma"]["email"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["email"].style.border="thin solid red";
 		document.getElementById("greskaEmail").style.display="block";
 		document.getElementById("greskaEmail").innerHTML="Unesite Email";
 		i++;
 	}
 	else
 	{
+		document.forms["regForma"]["email"].style.border="thin solid black";
 		document.getElementById("greskaEmail").style.display="none";
 		document.getElementById("greskaEmail").innerHTML="";
 	}
-	if(lozinka=="")
-	{
-		document.forms["regForma"]["lozinka"].style.border="thin solid #CC0000";
-		document.getElementById("greskaLozinka").style.display="block";
-		document.getElementById("greskaLozinka").innerHTML="Unesite Lozinku";
-		i++;
-	}
-	else
-	{
-		document.getElementById("greskaLozinka").style.display="none";
-		document.getElementById("greskaLozinka").innerHTML="";
-	}
 	if(opcina=="")
 	{
-		document.forms["regForma"]["opcina"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["opcina"].style.border="thin solid red";
 		document.getElementById("greskaOpcina").style.display="block";
 		document.getElementById("greskaOpcina").innerHTML="Unesite općinu";
 		i++;
 	}
 	else
 	{
+		document.forms["regForma"]["opcina"].style.border="thin solid black";
 		document.getElementById("greskaOpcina").style.display="none";
 		document.getElementById("greskaOpcina").innerHTML="";
 	}
 	if(mjesto=="")
 	{
-		document.forms["regForma"]["mjesto"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["mjesto"].style.border="thin solid red";
 		document.getElementById("greskaMjesto").style.display="block";
 		document.getElementById("greskaMjesto").innerHTML="Unesite mjesto";
 		i++;
 	}
 	else
 	{
+		document.forms["regForma"]["mjesto"].style.border="thin solid black";
 		document.getElementById("greskaMjesto").style.display="none";
 		document.getElementById("greskaMjesto").innerHTML="";
 	}
@@ -132,22 +141,48 @@ function validateRegistration(event)
 	
 	//cross validacija-> lozinka ne moze sadrzavati ime  ili prezime
 
-	if(lozinka!="" && (lozinka.indexOf(ime)!=-1 || lozinka.indexOf(prezime)!=-1))
+	if(lozinka!="" && (ime!="" || prezime!="") && (lozinka.indexOf(ime)!=-1 || lozinka.indexOf(prezime)!=-1))
 	{
-		document.forms["regForma"]["lozinka"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["lozinka"].style.border="thin solid red";
 		document.getElementById("greskaLozinka").style.display="block";
 		document.getElementById("greskaLozinka").innerHTML="Lozinka ne može sadrzavati vaše ime ili prezime";
 		i++;
+	}
+	else if(lozinka=="")
+	{
+		document.forms["regForma"]["lozinka"].style.border="thin solid red";
+		document.getElementById("greskaLozinka").style.display="block";
+		document.getElementById("greskaLozinka").innerHTML="Unesite lozinku";
+
+	}
+	else
+	{
+		document.forms["regForma"]["lozinka"].style.border="thin solid black";
+		document.getElementById("greskaLozinka").style.display="none";
+		document.getElementById("greskaLozinka").innerHTML="";
 	}
 	
 
 	var re = /^\w{3,30}@husefatkic\.ba$/;
 	if(email!="" && !email.match(re))
 	{
-		document.forms["regForma"]["email"].style.border="thin solid #CC0000";
+		document.forms["regForma"]["email"].style.border="thin solid red";
 		document.getElementById("greskaEmail").style.display="block";
 		document.getElementById("greskaEmail").innerHTML="Email mora biti u formatu nešto@husefatkic.ba";
 		i++;
+	}
+	else if(email=="")
+	{
+		document.forms["regForma"]["email"].style.border="thin solid red";
+		document.getElementById("greskaEmail").style.display="block";
+		document.getElementById("greskaEmail").innerHTML="Unesite email";
+	}
+	else
+	{
+		document.forms["regForma"]["email"].style.border="thin solid black";
+		document.getElementById("greskaEmail").style.display="none";
+		document.getElementById("greskaEmail").innerHTML="";
+
 	}
 	if(i>0) return false;
 

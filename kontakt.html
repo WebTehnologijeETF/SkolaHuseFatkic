@@ -23,63 +23,79 @@
 		</div>
 				<div id="desnoTijelo">
 					<h3> Prijava</h3>
-				<div id="login">	
-					<form  name="loginForma"  method="post" onsubmit="return validateLogin()" >
-						Email: <input type="text" name="email" ><br>
-						Lozinka: <input type="text" name="lozinka" ><br>
-						<input type="submit" value="PRIJAVA" id="prijava"> 
-					</form>
+					<div id="login">	
+						<form  name="loginForma"  method="post" onsubmit="return validateLogin()" >
+							Email: <input type="text" name="email" ><br>
+							Lozinka: <input type="text" name="lozinka" ><br>
+							<input type="submit" value="PRIJAVA" id="prijava"> 
+						</form>
 
-				</div>	
-				<h3> Registracija</h3>
-				<div id="registracija">	
-					<form  name="regForma" >
-						Ime: <input type="text" name="ime" >
-						<p id="greskaIme"> </p>
-						Prezime: <input type="text" name="prezime" >
-						<p id="greskaPrezime"> </p>
-						Email: <input type="text" name="email" >
-						<p id="greskaEmail"> </p>
-						
-						Lozinka: <input type="text" name="lozinka" >
-						<p id="greskaLozinka"> </p>
-						Broj mobitela(Neobavezno): <input type="text" name="mobitel" >
-						Spol: <select> 
-								  <option value="Musko">Muško</option>
-								  <option value="Zensko">Žensko</option>
-							   </select>
-						<br>
-						<br>
-						Općina: <input type="text" name="opcina" >
-						<p id="greskaOpcina"> </p>
-						Mjesto: <input type="text" name="mjesto" >
-						<p id="greskaMjesto"> </p>
-						<input type="button" value="REGISTRACIJA" name="posalji" onclick="return validateRegistration()"> 
-					</form>
-
-				</div>	
+					</div>	
+					<br> 
+					<br>
+					<h3> Srodne stranice</h3>
+					<ul>
+						<li>
+							<a href="http://www.tscze.com.ba/lokacija/uncategorised/lokacija">Tehnička škola Zenica</a>
+						</li>
+						<li>
+							<a href="http://etf.unsa.ba/">Elektrotehnički fakultet Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://www.scilijas.com.ba/">ŠC "Ilijaš"</a>
+						</li>
+						<li>
+							<a href="http://www.2gimnazija.edu.ba/">Druga gimnazija Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://www.ses.edu.ba/">Ekonomska škola Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://gdobrinja.edu.ba/">Gimnazija Dobrinja</a>
+						</li>
+						<li>
+							<a href="http://www.mssvogosca.edu.ba/">SC "Vogošća"</a>
+						</li>
+						<li>
+							<a href="http://www.peta-gimnazija.edu.ba/">Peta gimnazija</a>
+						</li>
+						<li>
+							<a href="http://www.muzickasa.edu.ba/muzicka/">Muzička škola Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://www.bosnjackagim.edu.ba/">Bošnjačka gimnazija Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://www.sts.edu.ba/">Srednja trgovačka škola Sarajevo</a>
+						</li>
+						<li>
+							<a href="http://www.treca-gimnazija.edu.ba/">Treća gimnazija Sarajevo</a>
+						</li>
+					</ul>
 					
 				</div>
 		<div class= "sadrzaj">
 			<h1> Kontaktirajte nas: </h1>
-				<div>
-					<table id="kontaktTabela">
-					<tr><td><p>Ime:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Prezime:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Adresa:</p></td><td><input type="text"></td></tr>
-					<tr><td><p>Email:</p></td><td><input type="email"></td></tr>
-					<tr><td><p>Spol:</p></td><td>
-					<form>
-						<input type="radio" name="spol" value="musko" checked>Muško
-						<br>
-						<input type="radio" name="spol" value="zensko">Žensko
-					</form>
-					</tr>
-					<tr><td><p>Poruka:</p></td><td><textarea name="text" id="PorukaZaSlanje"></textarea></td></tr>
-					
-					<tr><td><p></p></td><td><input type="button" value="POŠALJI" id="posaljiPoruku"></td></tr>
+				<div id="kontakt">
+					<form  name="kontaktForma" id="konForma" action="kontakt.php" method="get">
+						Ime: <br><input type="text" name="ime">	<br>
 
-					</table>
+						Prezime: <br><input type="text" name="prezime"><br>
+
+						Adresa(neobavezno): <br><input type="text" name="adresa"><br>
+
+						Email: <br><input type="email" name="email"><br>
+
+						Spol: <br><select> 
+									  <option value="Musko">Muško</option>
+									  <option value="Zensko">Žensko</option>
+							   </select><br>
+
+						Poruka: <br><textarea name="text" id="PorukaZaSlanje"></textarea><br>
+						
+					    <input type="submit" value="POŠALJI" id="posaljiPoruku">
+					</form>
+					
 				</div>
 		</div>
 	

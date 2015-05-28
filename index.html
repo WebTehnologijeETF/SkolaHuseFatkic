@@ -34,11 +34,40 @@
 				<li>
 					<a href="#" id="Profili" onclick="prikaziSakrij()"  >▼ PROFILI</a>
 					<div id="profiliMeni" class="hidden"  onmouseleave="prikaziSakrij()">
-							<a href="#" id="4" onclick="ucitaj('ucenici',this)">Učenici</a>
+						<ul>
+							<li>
+							<a href="#" id="4" onmouseenter="prikaziPodmeni()" onmouseleave="prikaziPodmeni()" >Učenici</a>
+							<div id="uceniciPodmeni" onmouseenter="prikaziPodmeni()" onmouseleave="prikaziPodmeni()" class="hidden">
+								<ul  >
+									<li>
+										<a href="#" id="4.1" onclick="ucitaj('ucenici',this)" >Dodaj</a>
+									</li>
+									<li>
+										<a href="#" id="4.2" onclick="ucitaj('ucenici',this)" >Izmjeni</a>
+									</li>
+									<li>
+										<a href="#" id="4.3" onclick="ucitaj('ucenici',this)" >Pregled</a>
+									</li>
+								</ul>
+							</div>
+							</li>
+							<br>
+							<li>
 							<a href="#">Nastavnici</a>
+							</li>
+							<br>
+							<li>
 							<a href="#">Menadžment</a>
+							</li>
+							<br>
+							<li>
 							<a href="#">Pedagoška služba</a>
+							</li>
+							<br>	
+							<li>
 							<a href="#">Tehničko osoblje</a>
+							</li>
+						</ul>
 					</div>
 				</li>
 			</ul>
@@ -69,7 +98,7 @@
 			<h3> Registracija</h3>
 				<div id="registracija">	
 					
-					<form  name="regForma" >
+					<form  name="regForma" id="regForma" onsubmit="return validateRegistration()">
 						Ime: <input type="text" name="ime" >
 						<p id="greskaIme"> </p>
 						Prezime: <input type="text" name="prezime" >
@@ -90,7 +119,7 @@
 						<p id="greskaOpcina"> </p>
 						Mjesto: <input type="text" name="mjesto" >
 						<p id="greskaMjesto"> </p>
-						<input type="button" value="REGISTRACIJA" name="posalji" onclick="return validateRegistration()"> 
+						<input type="submit" value="REGISTRACIJA" name="posalji"  > 
 					</form>
 
 				</div>	
