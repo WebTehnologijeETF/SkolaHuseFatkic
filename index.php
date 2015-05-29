@@ -12,24 +12,24 @@
 <BODY> 
 
 	<div id="header">
-		<a href="index.html" class="logo"> 
+		<a href="index.php" class="logo"> 
 			<img src="slike/logo.png" alt="logo">
 		</a>
 		<div id="meni">
 			<ul>
 				
 				<li >
-					<a id="0" class="odabrano" href="#" onclick="ucitaj('index1',this)">NASLOVNA</a>
+					<a id="0" class="odabrano" href="#" onclick="ucitaj('index1.php',this)">NASLOVNA</a>
 				</li>
 			  
 				<li>
-					<a href="#" id="1" class="pocetno" onclick="ucitaj('oskoli',this)">O šKOLI</a>
+					<a href="#" id="1" class="pocetno" onclick="ucitaj('oskoli.html',this)">O šKOLI</a>
 				</li>
 				<li>
-					<a href="#" id="2" class="pocetno" onclick="ucitaj('raspored',this)">RASPORED</a>
+					<a href="#" id="2" class="pocetno" onclick="ucitaj('raspored.html',this)">RASPORED</a>
 				</li>
 				 <li>
-					<a href="#" id="3" class="pocetno" onclick="ucitaj('kontakt',this)">KONTAKT</a>
+					<a href="#" id="3" class="pocetno" onclick="ucitaj('kontakt.php',this)">KONTAKT</a>
 				</li>
 				<li>
 					<a href="#" id="Profili" onclick="prikaziSakrij()"  >▼ PROFILI</a>
@@ -40,13 +40,13 @@
 							<div id="uceniciPodmeni" onmouseenter="prikaziPodmeni()" onmouseleave="prikaziPodmeni()" class="hidden">
 								<ul  >
 									<li>
-										<a href="#" id="4.1" onclick="ucitaj('ucenici',this)" >Dodaj</a>
+										<a href="#" id="4.1" onclick="ucitaj('ucenici.html',this)" >Dodaj</a>
 									</li>
 									<li>
-										<a href="#" id="4.2" onclick="ucitaj('ucenici',this)" >Izmjeni</a>
+										<a href="#" id="4.2" onclick="ucitaj('ucenici.html',this)" >Izmjeni</a>
 									</li>
 									<li>
-										<a href="#" id="4.3" onclick="ucitaj('ucenici',this)" >Pregled</a>
+										<a href="#" id="4.3" onclick="ucitaj('ucenici.html',this)" >Pregled</a>
 									</li>
 								</ul>
 							</div>
@@ -173,67 +173,54 @@
 
 			</ul>
 		</div>
+
+
 		<div class= "sadrzaj">
+
 			<h1> Novosti </h1>
 			<ul>
-				
+					<?php
+							$veza = new PDO("mysql:dbname=srednjaskola;host=localhost;charset=utf8", "adminiCclItz", "TeXad3t2Kj3L");
+						    $veza->exec("set names utf8");
+						    $rezultat = $veza->query("select id, autor, naslov, UNIX_TIMESTAMP(vrijeme) vrijeme2, slika, tekst, detaljanTekst from novosti order by vrijeme desc");
+						    if (!$rezultat) {
+						         $greska = $veza->errorInfo();
+						         print "SQL greška: " . $greska[2];
+						         exit();
+						       }
 
-					<li>
-							<h2> Obavještenje povodom praznika </h2>
-							
-								<p class="datum"> 23.11.2014 </p>
-								<p class="tekst"> 
-									<img src="slike/praznik.jpg" alt="">
-									Obavještavamo sve učenike Srednje škole "Huse Fatkić" da je petak 25.Novembar.2014 godine neradni dan zbog državnog praznika Dana državnosti Bosne i Hercegovine. Časovi predviđeni za taj dan se ne nadoknađuju. Također, 24.Novembra 2014.godine, u sali školske dvorane će biti organizovana priredba i pozivaju se svi učenici da prisustvuju.
-									<a href=""> Detaljnije...</a>
-								</p>
-								<p class="autor"> Ensar Muratović </p>
-						
-							
-				</li>
-			
-				<li>
-					<h2> SIGURNOST DJECE I MLADIH NA INTERNETU </h2>
-					<p class="datum"> 23.11.2014 </p>
-						    <p class="tekst"> 
-							<img src="slike/zastitadjeceimladih.jpg" alt="">
-							Ovdje možete pogledati prezentaciju portfolia na temu „Sigurnost djece i mladih na interentu“. Ovaj portfolio rađen je u sklopu „Projekt građana“ a cilj mu je edukacija roditelja, nastavnika i učenika o ovom problemu. Prezentacija će se održati u školskoj sali.
-							<a href=""> Detaljnije...</a>
-						</p>
-						<p class="autor"> Ensar Muratović </p>
-				</li>
-				<li>
-					<h2> SRCEM ZA DJEČIJI OSMIJEH </h2>
-					<p class="datum"> 18.11.2014 </p>
-						    <p class="tekst"> 
-							<img src="slike/srcemzadjecijiosmjeh.jpg" alt="">
-							Na mlađima svijet ostaje, zato se naša škola odlučila pomoći najmlađim u razvijanju svijesti i mogućnostima kvalitetnog obrazovanja i života u BiH. Tokom naših aktivnosti, odlučili smo usmjeriti pažnju na djecu u vrtiću Ilijaš. Rad sa njima sastojat će se od kreativnih radionica, časova engleskog jezika i obezbjeđivanja didaktičkih igračaka. Time im želimo pokazati da imaju nekoga ko stoji iza njih, ko će prepoznati njihovu vrijednost u budućnosti, pomoći im u sadašnjosti i biti im dobar uzor. Nizom akcija ćemo probuditi svijest mladih o važnosti volonterskog rada i usput se super zabaviti.
-							<a href=""> Detaljnije...</a>
-						</p>
-						<p class="autor"> Ensar Muratović </p>
-				</li>
-				<li>
-					<h2> Prezentacija za učenike: Hotel and Tourism Management Institute – HTMi iz Švicarske </h2>
-					<p class="datum"> 15.10.2014 </p>
-						    <p class="tekst"> 
-							<img src="slike/prezentacijazaucenike.jpg" alt="">
-							BHV Education u suradnji s Hotel and Tourism Management Institute – HTMi iz Švicarske otvara svoja vrata učenicima iz Hrvatske, te organizira akademsku prezentaciju s predstavnicima fakulteta. Prezentacija će se održati u Gradskoj knjižnici, Odjel za djecu i mladež na adresi Starčevićev trg 6 u ponedjeljak, 30.ožujka 2015. u 17:00 h..
-							<a href=""> Detaljnije...</a>
-						</p>
-						<p class="autor"> Ensar Muratović </p>
-				</li>
-				<li>
-					<h2>TISUĆE UČENIKA I STUDENATA IZAŠLO NA ULICE </h2>
-					<p class="datum"> 8.9.2014 </p>
-						    <p class="tekst"> 
-							<img src="slike/studentinaulici.jpg" alt="">
-							Oko 50 tisuća učenika i studenata u više talijanskih gradova sudjelovalo je u četvrtak u prosvjedima protiv reforme školstva. Najveći je bio u Milanu, gdje je došlo i do sukoba između prosvjednika i policije. Protivnici reforme su na organe reda bacali jaja, boce i druge predmete, a policija je odgovorila suzavcem, javljaju talijanski mediji.
-							<a href=""> Detaljnije...</a>
-						</p>
-						<p class="autor"> Ensar Muratović </p>
-				</li>
+						    foreach($rezultat as $novost)
+						    {
+						    	$tId=$novost['id'];
+						    	$tAutor=$novost['autor'];
+						    	$tNaslov=$novost['naslov'];
+						    	$tVrijeme=$tVrijeme=date("d.m.Y. (h:i)", $novost['vrijeme2']);
+						    	$tSlika=$novost['slika'];
+						    	$tTekst=$novost['tekst'];
+						    	$tDetaljanTekst=$novost['detaljanTekst'];
+
+						    	$rezultat=$veza->prepare("select count(*) from komentari where novost=$tId");
+						        $rezultat->execute();
+						        $broj = $rezultat->fetchColumn();
+						    	print "<li>
+											<h2> $tNaslov </h2>
+											
+												<p class='datum'> $tVrijeme </p>
+												<p class='tekst'> 
+													<img src='$tSlika' alt=''>
+													$tTekst
+													<a href=''> Detaljnije...</a>
+												</p>
+												<p class='autor'> $tAutor                 	<a href='#' onclick='prikaziNovostKomentar()'> $broj komentara  </a>  </p>
+										
+											
+									  </li>";
+
+								 
+						    }
 
 
+					?>
 		</ul>
 
 		</div>

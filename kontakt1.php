@@ -11,7 +11,75 @@
 </HEAD>
 <BODY> 
 
-	
+	<div id="header">
+		<a href="index.php" class="logo"> 
+			<img src="slike/logo.png" alt="logo">
+		</a>
+		<div id="meni">
+			<ul>
+				
+				<li >
+					<a id="0" class="pocetno" href="#" onclick="ucitaj('index1.php',this)">NASLOVNA</a>
+				</li>
+			  
+				<li>
+					<a href="#" id="1" class="pocetno" onclick="ucitaj('oskoli.html',this)">O šKOLI</a>
+				</li>
+				<li>
+					<a href="#" id="2" class="pocetno" onclick="ucitaj('raspored.html',this)">RASPORED</a>
+				</li>
+				 <li>
+					<a href="#" id="3" class="odabrano" onclick="ucitaj('kontakt.php',this)">KONTAKT</a>
+				</li>
+				<li>
+					<a href="#" id="Profili" onclick="prikaziSakrij()"  >▼ PROFILI</a>
+					<div id="profiliMeni" class="hidden"  onmouseleave="prikaziSakrij()">
+						<ul>
+							<li>
+							<a href="#" id="4" onmouseenter="prikaziPodmeni()" onmouseleave="prikaziPodmeni()" >Učenici</a>
+							<div id="uceniciPodmeni" onmouseenter="prikaziPodmeni()" onmouseleave="prikaziPodmeni()" class="hidden">
+								<ul  >
+									<li>
+										<a href="#" id="4.1" onclick="ucitaj('ucenici.html',this)" >Dodaj</a>
+									</li>
+									<li>
+										<a href="#" id="4.2" onclick="ucitaj('ucenici.html',this)" >Izmjeni</a>
+									</li>
+									<li>
+										<a href="#" id="4.3" onclick="ucitaj('ucenici.html',this)" >Pregled</a>
+									</li>
+								</ul>
+							</div>
+							</li>
+							<br>
+							<li>
+							<a href="#">Nastavnici</a>
+							</li>
+							<br>
+							<li>
+							<a href="#">Menadžment</a>
+							</li>
+							<br>
+							<li>
+							<a href="#">Pedagoška služba</a>
+							</li>
+							<br>	
+							<li>
+							<a href="#">Tehničko osoblje</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+	</div>
+		
+	</div>
+		
+
+
+	</div>
+	<div id="tijelo">
+
 		<div id="lijevoTijelo">
 			<h3> Informacije</h3>
 			<p><b>Naziv škole:</b><br> Srednja škola "Huse Fatkić"</p>
@@ -107,7 +175,9 @@
 
 		
 	</div>
-	
+	<div id="footer">
+	</div>
+
 	<SCRIPT src="javaScript/skripte.js"></SCRIPT>
 	<SCRIPT src="javaScript/AjaxMeni.js"></SCRIPT>
 	<SCRIPT src="javaScript/AjaxUcenici.js"></SCRIPT>

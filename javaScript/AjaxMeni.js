@@ -19,7 +19,7 @@ function ucitaj(stranica,a){
 	  	}
 	  	}
 	
-	ajax.open("GET",stranica+".html",true);
+	ajax.open("GET",stranica,true);
 	ajax.send();
 
 }

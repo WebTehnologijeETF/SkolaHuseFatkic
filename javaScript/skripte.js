@@ -220,3 +220,10 @@ function validateRegistration()
 	ajax.open("GET",url,true);
 	ajax.send();
 }
+
+function prikaziNovostKomentar()
+{
+	document.getElementById('lijevoTijelo').style.visibility="hidden";
+	
+
+}
